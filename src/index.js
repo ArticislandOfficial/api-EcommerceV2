@@ -17,7 +17,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   return res.json({
     msg: "Bienvenido al API de Repaso_Ecommercev2",
-
+    autor: process.env.AUTOR,
   });
 });
 app.use("/api/userRep",require("./routes/users.routes"))
