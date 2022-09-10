@@ -8,7 +8,7 @@ const User = require("../models/user");
 //Funcion de middleware para validacion de usuarios por medio de tokens
 const validarJWT = async (req, res, next) => {
   // nombre que se le asigna al token que va en el header(postman departe del cliente)
-  const token = req.header("x-auth-token");
+  const token = req.header("auth-token");
   // si  token es diferente manda codigo 400
   if (!token) {
     return res.status(401).json({

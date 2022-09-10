@@ -7,16 +7,16 @@ router.get ("/", getUsuarios);
 
 router.post("/", crearUsuario);
 
-router.put("/", (req, res) => {
-  return res.json({
-    msg: "put",
-  });
-});
+// router.put("/", (req, res) => {
+//   return res.json({
+//     msg: "put",
+//   });
+// });
 
-router.delete("/", (req, res) => {
-  return res.json({
-    msg: "delete",
-  });
-});
+// router.delete("/", (req, res) => {
+//   return res.json({
+//     msg: "delete",
+//   });
+// });
 
 module.exports = router;

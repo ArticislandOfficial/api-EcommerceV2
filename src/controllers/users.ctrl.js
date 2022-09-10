@@ -22,23 +22,23 @@ const newUser = await User.create(user)
   });
 };
 
-const updateUser = (req, res) => {
-  const { idUser } = req.params;
-  const { user_name, password } = req.body;
+// const updateUser = (req, res) => {
+//   const { idUser } = req.params;
+//   const { user_name, password } = req.body;
 
-  const usuarioEncontrado = users.find((user) => {
-    return user.id === idUser;
-  });
+//   const usuarioEncontrado = users.find((user) => {
+//     return user.id === idUser;
+//   });
 
-  usuarioEncontrado.user_name = user_name;
-  usuarioEncontrado.password = password;
+//   usuarioEncontrado.user_name = user_name;
+//   usuarioEncontrado.password = password;
 
-  return res.json({
-    ok: true,
-    msg: "Usuario actualizado",
-    data: usuarioEncontrado,
-  });
-};
+//   return res.json({
+//     ok: true,
+//     msg: "Usuario actualizado",
+//     data: usuarioEncontrado,
+//   });
+// };
 
 
 module.exports = {
