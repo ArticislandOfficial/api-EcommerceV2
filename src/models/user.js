@@ -16,12 +16,12 @@ const UserSchema = Schema({
     type: String,
   },
 }); 
-//Se utiliza para retornar id como propiedad 
-// UserSchema.methods.toJSON = function (){
-//   const {__v,_id, ...lodemas} = this.toObject();
-//   lodemas.id= _id;
-//   return lodemas
-// }
+// Se utiliza para retornar id como propiedad 
+UserSchema.methods.toJSON = function (){
+  const {__v,_id, ...lodemas} = this.toObject();
+  lodemas.id= _id;
+  return lodemas
+}
 
 const User = model("user", UserSchema);
 module.exports = User;
