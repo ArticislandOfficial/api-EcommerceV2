@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const { generarJWT } = require("../helpers/jwt.helper");
-
+// se registra usuario con metodo post
 const registrarUsuario = async (req, res) => {
   // se mete dentro de un try catch para ver posibles errores
   try {
