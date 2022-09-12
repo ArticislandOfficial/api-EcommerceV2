@@ -107,7 +107,7 @@ const verificarUsuario = async (req, res) => {
 
   return res.status(200).json({
     ok: true,
-    msg: "usuario validado REP API",
+    msg: "usuario validado por token REP API",
     data: usuario,
     token,
   });
