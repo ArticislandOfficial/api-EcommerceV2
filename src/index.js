@@ -22,8 +22,10 @@ app.get("/", (req, res) => {
 });
 app.use("/api/userRep",require("./routes/users.routes"))
 app.use("/api/auth", require("./routes/auth.routes")) 
-app.use("/api/products", require("./routes/products.routes"));
+app.use("/api/productsEV2", require("./routes/productsEV2.routes"));
+app.use("/api/topProducts",require('./routes/productsTop.routes'))
 // 4. SERVIDOR
 app.listen(PORT, () => {
   console.log(`Servidor ejecutando en el puerto ${PORT}`);
 });
+ 

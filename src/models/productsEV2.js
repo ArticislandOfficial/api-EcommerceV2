@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const ProductSchema = Schema({
+const ProductSchemaEV2 = Schema({
   name: {
     type: String,
     require: [true, "El nombre es requerido"],
@@ -11,9 +11,9 @@ const ProductSchema = Schema({
     type: String,
     default: "Descripcion del producto",
   },
-
+  img: { type: String },
   price: Number,
 });
 
-const product = model("product", ProductSchema);
-module.exports = product;
+const productEV2 = model("productEV2", ProductSchemaEV2);
+module.exports = productEV2;

@@ -7,13 +7,13 @@ const {
   actualizarProducto,
   eliminarProducto,
   obtenerProducto,
-} = require("../controllers/product.ctrl");
+} = require("../controllers/productTop.ctrl ");
 
 const router = Router();
 
-router.get("/", validarJWT, obtenerProductos);
+router.get("/", obtenerProductos);
 router.post("/", crearProducto);
-router.put("/:idProducto", validarJWT, actualizarProducto);
+router.put("/:idProducto", actualizarProducto);
 router.delete("/:idProducto", eliminarProducto);
 router.get("/:idProducto", obtenerProducto);
 

@@ -1,7 +1,7 @@
-const Product = require("../models/products");
+const ProductsTop = require("../models/productsTop");
 
 const obtenerProductos = async (req, res) => {
-  const productos = await Product.find();
+  const productos = await ProductsTop.find();
 
   return res.json({
     msg: "Lista de productos obtenida",
@@ -10,15 +10,17 @@ const obtenerProductos = async (req, res) => {
 };
 
 const crearProducto = async (req, res) => {
-  const { name, description, price } = req.body;
+  const { name, description, price, number,img } = req.body;
 
   const producto = {
     name,
     description,
     price,
+    number,
+    img
   };
 
-  const nuevoProducto = await Product.create(producto);
+  const nuevoProducto = await ProductsTop.create(producto);
 
   return res.json({
     msg: "Producto creado",
@@ -28,15 +30,17 @@ const crearProducto = async (req, res) => {
 
 const actualizarProducto = async (req, res) => {
   const { idProducto } = req.params;
-  const { name, description, price } = req.body;
+  const { name, description, price,number,img } = req.body;
 
   const producto = {
     name,
     description,
     price,
+    number,
+    img
   };
 
-  const productoActualizado = await Product.findByIdAndUpdate(
+  const productoActualizado = await ProductsTop.findByIdAndUpdate(
     idProducto,
     producto,
     { new: true }
@@ -51,7 +55,7 @@ const actualizarProducto = async (req, res) => {
 const eliminarProducto = async (req, res) => {
   const { idProducto } = req.params;
 
-  const productoEliminado = await Product.findByIdAndRemove(idProducto);
+  const productoEliminado = await ProductsTop.findByIdAndRemove(idProducto);
 
   return res.json({
     msg: "Producto eliminado",
@@ -60,7 +64,7 @@ const eliminarProducto = async (req, res) => {
 };
 const obtenerProducto = async (req, res) => {
   const { idProducto } = req.params;
-  const producto = await Product.findById(idProducto);
+  const producto = await ProductsTop.findById(idProducto);
 
   return res.json({
     msg: "Producto obtenido",
@@ -75,3 +79,4 @@ module.exports = {
   eliminarProducto,
   obtenerProducto,
 };
+ 
