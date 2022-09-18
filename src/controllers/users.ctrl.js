@@ -15,33 +15,48 @@ const crearUsuario = async (req, res) => {
     username,
     password,
   };
-const newUser = await User.create(user)
+  const newUser = await User.create(user);
   return res.json({
     msg: `Se creo un nuevo usuario llamado ${username} `,
     data: newUser,
   });
 };
 
-// const updateUser = (req, res) => {
-//   const { idUser } = req.params;
-//   const { user_name, password } = req.body;
+const updateUser = (req, res) => {
+  const { idUser } = req.params;
+  const { user_name, password } = req.body;
 
-//   const usuarioEncontrado = users.find((user) => {
-//     return user.id === idUser;
-//   });
+  const usuarioEncontrado = users.find((user) => {
+    return user.id === idUser;
+  });
 
-//   usuarioEncontrado.user_name = user_name;
-//   usuarioEncontrado.password = password;
+  usuarioEncontrado.user_name = user_name;
+  usuarioEncontrado.password = password;
 
-//   return res.json({
-//     ok: true,
-//     msg: "Usuario actualizado",
-//     data: usuarioEncontrado,
-//   });
-// };
+  return res.json({
+    ok: true,
+    msg: "Usuario actualizado",
+    data: usuarioEncontrado,
+  });
+};
+const deleteUser = (req, res) => {
+  const { idUser } = req.params;
 
+  const usuarioEncontrado = users.find((user) => {
+    return user.id === idUser;
+  });
 
+  users.splice(users.indexOf(usuarioEncontrado), 1);
+
+  return res.json({
+    ok: true,
+    msg: "Usuario eliminado",
+    data: usuarioEncontrado,
+  });
+};
 module.exports = {
   getUsuarios,
   crearUsuario,
+  updateUser,
+  deleteUser,
 };
